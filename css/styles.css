@@ -81,7 +81,7 @@ nav .list .link {
 background-color: var(--pressed-state);
 }
 
-.hide {color: var(--white-background);}
+.hide {display: none;}
 
 .feature-name {
     color: var(--dark);
