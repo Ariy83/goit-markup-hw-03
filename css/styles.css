@@ -56,7 +56,7 @@ nav .list .link {
 }
 .contacts-header {font-style: normal}
 .contacts-header .list .link {
-    color: var(--text);
+    color: currentColor;
 }
 
 .hero {background-color: var(--dark)}
