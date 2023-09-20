@@ -1,3 +1,36 @@
+/* reset start */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ul,
+ol {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+.link {
+    text-decoration: none;
+    color: currentColor;
+}
+.list {
+    list-style: none;
+}
+.contacts-header {
+    font-style: normal;
+}
+.list-item:not(:last-child) {
+    margin-bottom: 20px;
+}
+/* reset end */
+
 :root {
     --primary-font: 'Roboto', sans-serif;
     --logo-font: 'Raleway', sans-serif;
@@ -19,26 +52,35 @@ body {
     letter-spacing: 0.32px;
     word-wrap: break-word;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin-top: 0;
-    margin-bottom: 0;
+img,
+svg {
+    display: block;
 }
-
-ul,
-ol {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
+.header {
+    max-width: 100%;
+    border-bottom: 1px solid var(--accent);
 }
-
-nav>.link, footer>.link {
+.container {
+    width: 1158px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.header-container {
+    display: flex;
+    height: 72px;
+    align-content: center;
+}
+.nav {
+    display: flex;
+    margin: auto 0;
+}
+.nav-list {
+    display: flex;
+    gap: 40px;
+    margin-right: 332px;
+    margin-left: 76px;
+}
+.logo.link {
     color: var(--primary-brand);
     font-size: 18px;
     font-family: Raleway, sans-serif;
@@ -46,17 +88,31 @@ nav>.link, footer>.link {
     text-transform: uppercase;
     line-height: 1.17;
     letter-spacing: 0.54px;
-    text-decoration: none;
+    height: 24px;
 }
-nav .list .link {
+.nav .studio {
+    color: var(--dark);
+}
+.nav-links {
+    display: inline-block;
     color: var(--dark);
     font-weight: 500;
-    list-style: none;
-    text-decoration: none;
 }
-.contacts-header {font-style: normal}
-.contacts-header .list .link {
-    color: currentColor;
+
+.contacts-header {
+    display: flex;
+}
+.contacts {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.contacts-links {
+    color: var(--text);
+}
+.contacts-item {
+    max-width: 153px;
+    height: 24px;
 }
 
 .hero {background-color: var(--dark)}
@@ -81,7 +137,18 @@ nav .list .link {
 background-color: var(--pressed-state);
 }
 
-.hide {display: none;}
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
 
 .feature-name {
     color: var(--dark);
@@ -100,18 +167,38 @@ background-color: var(--pressed-state);
     letter-spacing: 0.72px;
 }
 
-.filter-btn {
+.filters {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-top: 96px;
+    margin-bottom: 72px;
+    gap: 24px;
+}
+.filters-btn {
     color: var(--primary-brand);
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: 0.64px;
     background-color: var(--light);
-    justify-content: center;
     cursor: pointer;
+    width: 100%;
+    height: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 4px;
+    border: 1px solid var(--accent);
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
     }
-.filter-btn:hover, .filter-btn:focus, .filter-btn:active {
+.filters-btn:hover, .filter-btn:focus, .filter-btn:active {
     background-color: var(--pressed-state);
     color: var(--white-background);
+    border-color: var(--pressed-state);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .team-cards {background-color: var(--light);}
@@ -125,24 +212,27 @@ background-color: var(--pressed-state);
 .card-text {color: var(--text);}
 .team-list {background-color: var(--white-background);}
 
-nav .studio {
-    color: var(--dark);
+.footer-container {
+    height: 312px;
 }
-footer .studio {
+
+.footer-logo-container {
+    display: flex;
+    padding-top: 100px;
+    margin-bottom: 16px;
+}
+.footer .studio {
     color: var(--light);
 }
 .bottom-text {
     color: var(--light);
+    display: flex;
+    width: 264px;
+    height: 72px;
 }
-.bottom {background-color: var(--dark)}
+.footer {
+    background-color: var(--dark)}
 
-.link {
-    text-decoration: none;
-}
 .list .link:hover,
 .list .link:focus,
 .list .link:active {color: var(--pressed-state);}
-
-.list {
-    list-style: none;
-}
