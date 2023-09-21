@@ -37,10 +37,11 @@ ol {
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
-/*  видалення лишнього маржіна
+/*  приклад видалення лишнього маржіна
     .list-item:not(:last-child) {
     margin-bottom: XXXpx;
 } */
+
 /* reset end */
 
 :root {
@@ -73,15 +74,23 @@ svg {
     max-width: 100%;
     height: auto;
 }
-.header {
-    display: block;
-    max-width: 100%;
-    border-bottom: 1px solid var(--accent);
+.list .link:hover,
+.list .link:focus,
+.list .link:active {
+    color: var(--pressed-state);
 }
 .container {
     width: 1158px;
     margin: 0 auto;
     padding: 0 15px;
+}
+
+/* HEADER */
+
+.header {
+    display: block;
+    max-width: 100%;
+    border-bottom: 1px solid var(--accent);
 }
 .header-container {
     display: flex;
@@ -98,16 +107,15 @@ svg {
     }
 .logo-header {
     display: inline-block;
-    padding: 25.5px 0;
     margin-right: 76px;
 }
 .nav {
     display: flex;
+    align-items: center;
 }
 .nav-list {
     display: flex;
     gap: 40px;
-    padding: 24px 0;
     margin-right: 332px;
 }
 .nav .studio {
@@ -117,6 +125,7 @@ svg {
     display: inline-block;
     color: var(--dark);
     font-weight: 500;
+    padding: 24px 0;
 }
 .contacts {
     display: flex;
@@ -127,11 +136,13 @@ svg {
     color: var(--text);
 }
 
-.hero {
+/* INDEX SECTION 1 */
+
+.hero-section {
+    padding: 188px 0;
     background-color: var(--dark);
 }
 .hero-container {
-    padding: 188px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -144,7 +155,7 @@ svg {
     line-height: 1.07;
     letter-spacing: 1.12px;
     word-wrap: break-word;
-    width: 496px;
+    max-width: 496px;
     margin-bottom: 48px;
 }
 .hero-btn {
@@ -158,22 +169,24 @@ svg {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-width: 0;
     padding: 16px 32px;
-    width:fit-content;
+    min-width: 169px;
+    border: none;
     }
 .hero-btn:hover, .hero-btn:focus, .hero-btn:active {
 background-color: var(--pressed-state);
 }
 
-.what-container {
-    padding-bottom: 120px;
+/* INDEX SECTION 2 */
+
+.features-section {
+    padding: 120px 0;
 }
 .features-list {
     display: flex;
     gap: 24px;
-    padding: 120px 0;
 }
 .feature-item {
-    width: 264px;
+    width calc((100% - 3 * 24px) / 4);
 }
 .feature-name {
     color: var(--dark);
@@ -183,7 +196,13 @@ background-color: var(--pressed-state);
     letter-spacing: 0.40px;
     margin-bottom: 8px;
 }
-.name-what {
+
+/* INDEX SECTION 3 */
+
+.what-section {
+    padding-bottom: 120px;
+}
+.what-title {
     color: var(--dark);
     font-size: 36px;
     font-weight: 700;
@@ -195,14 +214,84 @@ background-color: var(--pressed-state);
 }
 .what-list {
     display: flex;
-    gap: 24px;
+    row-gap: var(--indent-row);
+    justify-content: space-between;
+    align-items: first baseline;
+    --items: 3;
+    --indent-col: 24px;
+}
+.what-list-item {
+    flex-basis: calc((100% - var(--indent-col) * var(--item) - 1) / var(--item));
 }
 
+/* INDEX SECTION 4 */
+
+.team-cards-section {
+    background-color: var(--light);
+    padding: 120px 0;
+}
+.team-list-item {
+    flex-basis: calc((100% - var(--indent-col) * var(--item) - 1) / var(--item));
+    background-color: var(--white-background);
+    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.team-cards-list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--indent-col);
+    justify-content: space-between;
+    align-items: first baseline;
+    --items: 4;
+    --indent-col: 24px;
+    gap: 24px;
+}
+.card-name {
+    color: var(--dark);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.40px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+.team-cards-content {
+    padding: 32px 0;
+}
+.card-text {
+    color: var(--text);
+    text-align: center;
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: var(--dark);
+    padding: 100px 0;
+}
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 16px;
+}
+.footer .studio {
+    color: var(--light);
+}
+.footer-text {
+    color: var(--light);
+    max-width: 264px;
+}
+
+/* PORTFOLIO */
+
+.section-portfolio {
+    padding-top: 96px;
+    padding-bottom: 120px;
+}
 .filters {
     display: flex;
     align-content: center;
     justify-content: center;
-    padding-top: 96px;
     margin-bottom: 72px;
     gap: 24px;
 }
@@ -215,10 +304,7 @@ background-color: var(--pressed-state);
     cursor: pointer;
     width: 100%;
     height: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding: 12px 24px;
     border-radius: 4px;
     border: 1px solid var(--accent);
     justify-content: center;
@@ -228,12 +314,10 @@ background-color: var(--pressed-state);
 .filters-btn:hover, .filter-btn:focus, .filter-btn:active {
     background-color: var(--pressed-state);
     color: var(--white-background);
-    border-color: var(--pressed-state);
+    border: 1px solid transparent;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
-.project-container {
-    padding-bottom: 120px;
-}
+
 .project-cards {
     display: flex;
     flex-wrap: wrap;
@@ -248,7 +332,7 @@ background-color: var(--pressed-state);
     flex-basis: calc((100% - var(--indent-col) * var(--item) - 1) / var(--item));
 }
 .project-card-full {
-    
+
  }
 .project-card-content {
     border: 1px solid var(--accent);
@@ -259,62 +343,3 @@ background-color: var(--pressed-state);
     flex-direction: column;
     gap: 8px;
 }
-.team-list-item {
-    flex-basis: calc((100% - var(--indent-col) * var(--item) - 1) / var(--item));
-    background-color: var(--white-background);
-    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08);
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-}
-.team-cards-container {
-    padding: 120px 15px;
-}
-.team-cards-list {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: var(--indent-col);
-    justify-content: space-between;
-    align-items: first baseline;
-    --items: 4;
-    --indent-col: 24px;
-}
-.team-cards {background-color: var(--light);}
-.card-name {
-    color: var(--dark);
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: 0.40px;
-}
-.team-cards-content {
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    display: inline-flex;
-    padding: 32px 16px;
-}
-.card-text {color: var(--text);}
-
-.footer-container {
-    display: flex;
-    flex-direction: column;
-    padding: 100px 15px;
-    gap: 16px;
-    }
-
-.footer .studio {
-    color: var(--light);
-}
-.bottom-text {
-    color: var(--light);
-    width: 264px;
-}
-.footer {
-    background-color: var(--dark)}
-
-.list .link:hover,
-.list .link:focus,
-.list .link:active {color: var(--pressed-state);}
