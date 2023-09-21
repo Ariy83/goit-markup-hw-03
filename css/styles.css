@@ -186,7 +186,7 @@ background-color: var(--pressed-state);
     gap: 24px;
 }
 .feature-item {
-    width calc((100% - 3 * 24px) / 4);
+    width: calc((100% - 3 * 24px) / 4);
 }
 .feature-name {
     color: var(--dark);
@@ -219,6 +219,7 @@ background-color: var(--pressed-state);
     align-items: first baseline;
     --items: 3;
     --indent-col: 24px;
+    gap: 24px;
 }
 .what-list-item {
     flex-basis: calc((100% - var(--indent-col) * var(--item) - 1) / var(--item));
@@ -311,7 +312,9 @@ background-color: var(--pressed-state);
     align-items: center;
     display: inline-flex;
     }
-.filters-btn:hover, .filter-btn:focus, .filter-btn:active {
+.filters-btn:hover,
+.filter-btn:focus,
+.filter-btn:active {
     background-color: var(--pressed-state);
     color: var(--white-background);
     border: 1px solid transparent;
@@ -331,15 +334,18 @@ background-color: var(--pressed-state);
 .project-cards-item {
     flex-basis: calc((100% - var(--indent-col) * var(--item) - 1) / var(--item));
 }
-.project-card-full {
-
- }
 .project-card-content {
     border: 1px solid var(--accent);
-    border-top: 0;
+    border-top: none;
     display: inline-flex;
     width: 360px;
     padding: 32px 16px;
     flex-direction: column;
     gap: 8px;
+}
+.project-card-name {
+    text-align: left;
+}
+.project-card-text {
+    text-align: left;
 }
