@@ -74,9 +74,9 @@ svg {
     max-width: 100%;
     height: auto;
 }
-.list .link:hover,
-.list .link:focus,
-.list .link:active {
+.link:hover,
+.link:focus,
+.link:active {
     color: var(--pressed-state);
 }
 .container {
@@ -312,9 +312,9 @@ background-color: var(--pressed-state);
     align-items: center;
     display: inline-flex;
     }
-.filters-btn:hover,
-.filter-btn:focus,
-.filter-btn:active {
+.filters-item>.filters-btn:hover,
+.filters-item>.filter-btn:focus,
+.filters-item>.filter-btn:active {
     background-color: var(--pressed-state);
     color: var(--white-background);
     border: 1px solid transparent;
